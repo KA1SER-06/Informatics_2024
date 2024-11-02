@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	lab4 "Git ISUCT/Informatics_2024/golang/lab-4.go"
+	lab4 "Git ISUCT/Informatics_2024/golang/lab4.go"
 )
 
 func main() {
