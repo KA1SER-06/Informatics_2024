@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	fmt.Println("Максимов Даниил Андреевич")
+	fmt.Println("Maksimov_Daniil_Andreevich")
 	lab4.startLab4()
 }
