@@ -1,58 +1,34 @@
-package lab4
+package Lab4
 
 import (
-"fmt"
-"math"
+	"fmt"
+	"math"
 )
 
-func calculateY(a, x float64) float64 {
-xSquaredMinus1 := x*x - 1
-part1 := math.Pow(a, xSquaredMinus1) 
-part2 := math.Log(xSquaredMinus1) 
-part3 := math.Cbrt(xSquaredMinus1) 
-
-y := part1 - part2 + part3
-return y
+func Calculate(x, a float64) float64 {
+	y := math.Pow(a, math.Sqrt(x)-1) - math.Log10(math.Sqrt(x)-1) + math.Pow(math.Sqrt(x)-1, 1.0/3.0)
+	return y
 }
 
-func SolveTaskA(a, b, xStart, xEnd, step float64) []float64 {
-	results := []float64{}
-	for x := xStart; x <= xEnd; x += step {
-		y := CalculateY(a, b, x)
-		results = append(results, y)
+func TaskA(b, Xn, Xk, delX float64) []float64 {
+	var y []float64
+	for x := Xn; x <= Xk; x += delX {
+		y = append(y, Calculate(b, x))
 	}
-	return results
+	return y
 }
 
-func SolveTaskB(a, b float64, xValues []float64) []float64 {
-	results := []float64{}
-	for _, x := range xValues {
-		y := CalculateY(a, b, x)
-		results = append(results, y)
+func TaskB(b float64, x [5]float64) []float64 {
+	var y []float64
+	for _, value := range x {
+		y = append(y, Calculate(b, value))
 	}
-	return results
+	return y
 }
 
-func startLab4() {
-a := 1.6
-
-fmt.Println("Задача A:")
-	xStartA := 1.2
-	xEndA := 3.7
-	step := 0.5
-
-	for x := xStartA; x <= xEndA; x += step {
-		y := calculateY(a, b, x)
-		fmt.Printf("x = %.2f, y = %.5f\n", x, y)
-	}
-
-
-	fmt.Println("Задача B:")
-	xValuesB := []float64{1.28, 1.36, 2.47, 3.68, 4.56}
-
-
-	for _, x := range xValuesB {
-		y := calculateY(a, b, x)
-		fmt.Printf("x = %.2f, y = %.5f\n", x, y)
-	}
+func RunLab4() {
+	b := 2.5
+	fmt.Println(TaskA(b, 1.2, 3.7, 0.5))
+	var s = [5]float64{1.28, 1.36, 2.47, 3.68, 4.56}
+	fmt.Println(TaskB(b, s))
 }
