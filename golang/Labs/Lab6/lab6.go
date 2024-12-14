@@ -1,4 +1,4 @@
-package lab6
+package Lab6
 
 import "fmt"
 
@@ -29,7 +29,7 @@ func (p Person) GetAge() string    { return p.Age }
 func (p Person) GetHeight() string { return p.Height }
 
 func RunLab6Tasks() {
-	human := NewPerson("Киррил", "21", "182")
+	human := NewPerson("Кирилл", "21", "182")
 	human.SetName("Макс")
 	fmt.Println(human.GetName())
 	fmt.Println(human.GetAge())
