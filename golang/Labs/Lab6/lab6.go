@@ -32,7 +32,7 @@ func (p *Person) UpdateName(newName string) {
 
 func Runlab6() {
 
-	person := NewPerson("Анна", 22, 1.68)
+	person := NewPerson("Василиса", 22, 1.68)
 
 	fmt.Println(person.GetInfo())
 
