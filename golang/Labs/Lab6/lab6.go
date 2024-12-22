@@ -1,41 +1,41 @@
-package Lab6
+package lab6
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Person struct {
-	Name   string
-	Age    string
-	Height string
+	Name    string
+	Age     int
+	Country string
 }
 
-func NewPerson(name, age, height string) *Person {
-	p := new(Person)
-	p.Name = name
-	p.Age = age
-	p.Height = height
-	return p
+func (c *Person) SetAge(age int) {
+	c.Age = age
 }
 
-func (p *Person) SetName(name string) { p.Name = name }
-
-func (p *Person) UpdateStruct(new_name, new_age, new_height string) {
-	p.Name = new_name
-	p.Age = new_age
-	p.Height = new_height
+func (c *Person) SetCountry(country string) {
+	c.Country = country
 }
 
-func (p Person) GetName() string   { return p.Name }
-func (p Person) GetAge() string    { return p.Age }
-func (p Person) GetHeight() string { return p.Height }
+func (c *Person) DisplayInfo() {
+	fmt.Println("Имя:", c.Name)
+	fmt.Println("Возраст:", c.Age)
+	fmt.Println("Страна:", c.Country)
+}
 
-func RunLab6Tasks() {
-	human := NewPerson("Владислав", "21", "182")
-	human.SetName("Марат")
-	fmt.Println(human.GetName())
-	fmt.Println(human.GetAge())
-	fmt.Println(human.GetHeight())
-	human.UpdateStruct("Елизавета", "19", "168")
-	fmt.Println(human.GetName())
-	fmt.Println(human.GetAge())
-	fmt.Println(human.GetHeight())
+func Lab6() {
+	Yan := Person{
+		Name:    "Ян",
+		Age:     20,
+		Country: "Россия",
+	}
+
+	Yan.DisplayInfo()
+
+	Yan.SetAge(31)
+
+	Yan.SetCountry("Беларусь")
+
+	Yan.DisplayInfo()
 }
