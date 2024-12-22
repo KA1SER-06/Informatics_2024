@@ -1,43 +1,41 @@
-package lab6
+package Lab6
 
-import (
-	"fmt"
-)
+import "fmt"
 
 type Person struct {
 	Name   string
-	Age    int
-	Height float64
+	Age    string
+	Height string
 }
 
-func NewPerson(name string, age int, height float64) Person {
-	return Person{
-		Name:   name,
-		Age:    age,
-		Height: height,
-	}
+func NewPerson(name, age, height string) *Person {
+	p := new(Person)
+	p.Name = name
+	p.Age = age
+	p.Height = height
+	return p
 }
 
-func (p Person) GetInfo() string {
-	return fmt.Sprintf("Имя: %s, Возраст: %d, Рост: %.2f м", p.Name, p.Age, p.Height)
+func (p *Person) SetName(name string) { p.Name = name }
+
+func (p *Person) UpdateStruct(new_name, new_age, new_height string) {
+	p.Name = new_name
+	p.Age = new_age
+	p.Height = new_height
 }
 
-func (p Person) IsAdult() bool {
-	return p.Age >= 18
-}
+func (p Person) GetName() string   { return p.Name }
+func (p Person) GetAge() string    { return p.Age }
+func (p Person) GetHeight() string { return p.Height }
 
-func (p *Person) UpdateName(newName string) {
-	p.Name = newName
-}
-
-func Runlab6() {
-
-	person := NewPerson("Василиса", 22, 1.68)
-
-	fmt.Println(person.GetInfo())
-
-	fmt.Printf("Совершеннолетний: %v\n", person.IsAdult())
-
-	person.UpdateName("Екатерина")
-	fmt.Println(person.GetInfo())
+func RunLab6Tasks() {
+	human := NewPerson("Владислав", "21", "182")
+	human.SetName("Марат")
+	fmt.Println(human.GetName())
+	fmt.Println(human.GetAge())
+	fmt.Println(human.GetHeight())
+	human.UpdateStruct("Елизавета", "19", "168")
+	fmt.Println(human.GetName())
+	fmt.Println(human.GetAge())
+	fmt.Println(human.GetHeight())
 }
