@@ -10,5 +10,4 @@ func main() {
 	fmt.Println("Maksimov Daniil Andreevich")
 
 	lab4.RunLab4()
-
 }
